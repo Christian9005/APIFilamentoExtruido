@@ -14,12 +14,16 @@ public class FDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
-
-        if (string.IsNullOrEmpty(connectionString))
+        var builder = new NpgsqlConnectionStringBuilder
         {
-            throw new InvalidOperationException("DB_CONNECTION_STRING environment variable is not set.");
-        }
+            Host = "containers-us-west-63.railway.app",
+            Port = 7223,
+            Database = "railway",
+            Username = "postgres",
+            Password = "gydcBqKM0kBEyzhe4ueo",
+        };
+
+        string connectionString = builder.ConnectionString;
 
         optionsBuilder.UseNpgsql(connectionString);
     }
