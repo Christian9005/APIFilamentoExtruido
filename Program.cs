@@ -24,6 +24,13 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCors(builder =>
+{
+    builder.WithOrigins("http://192.168.0.112:3000")
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+
 app.MapControllers();
 
 app.Run();
