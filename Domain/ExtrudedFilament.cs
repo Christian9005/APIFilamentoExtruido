@@ -11,4 +11,5 @@ public class ExtrudedFilament
     public bool StateMaterial { get; set; }
     public float CollectMeters { get; set; }
     public float ExtruderTemperature { get; set; }
+    public float SetPointTemperature { get; set; }
 }

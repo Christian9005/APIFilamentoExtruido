@@ -47,7 +47,8 @@ public class ExtrudedFilamentController : ControllerBase
             SpeedMotor = extrudedFilamentDto.SpeedMotor,
             CollectMeters = extrudedFilamentDto.CollectMeters,
             StateMaterial = extrudedFilamentDto.StateMaterial,
-            ExtruderTemperature = extrudedFilamentDto.ExtruderTemperature
+            ExtruderTemperature = extrudedFilamentDto.ExtruderTemperature,
+            SetPointTemperature = extrudedFilamentDto.SetPointTemperature
         };
 
         fDbContext.ExtrudedFilaments.Add(extrudedFilament);
@@ -83,6 +84,11 @@ public class ExtrudedFilamentController : ControllerBase
         if (extrudedFilamentDtoUpdate.ExtruderTemperature.HasValue)
         {
             extrudedFilament.ExtruderTemperature = extrudedFilamentDtoUpdate.ExtruderTemperature.Value;
+        }
+
+        if (extrudedFilamentDtoUpdate.SetPointTemperature.HasValue)
+        {
+            extrudedFilament.SetPointTemperature = extrudedFilamentDtoUpdate.SetPointTemperature.Value;
         }
 
         fDbContext.Entry(extrudedFilament).State = EntityState.Modified;
