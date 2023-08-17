@@ -47,6 +47,7 @@ public class ExtrudedFilamentController : ControllerBase
             SpeedMotor = extrudedFilamentDto.SpeedMotor,
             CollectMeters = extrudedFilamentDto.CollectMeters,
             StateMaterial = extrudedFilamentDto.StateMaterial,
+            EnableMotor = extrudedFilamentDto.EnableMotor,
             ExtruderTemperature = extrudedFilamentDto.ExtruderTemperature,
             SetPointTemperature = extrudedFilamentDto.SetPointTemperature
         };
@@ -79,6 +80,11 @@ public class ExtrudedFilamentController : ControllerBase
         if (extrudedFilamentDtoUpdate.StateMaterial.HasValue)
         {
             extrudedFilament.StateMaterial = extrudedFilamentDtoUpdate.StateMaterial.Value;
+        }
+
+        if (extrudedFilamentDtoUpdate.EnableMotor.HasValue)
+        {
+            extrudedFilament.EnableMotor = extrudedFilamentDtoUpdate.EnableMotor.Value;
         }
 
         if (extrudedFilamentDtoUpdate.ExtruderTemperature.HasValue)
