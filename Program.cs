@@ -26,7 +26,7 @@ app.UseAuthorization();
 
 app.UseCors(builder =>
 {
-    builder.WithOrigins("http://192.168.0.112:3000")
+    builder.WithOrigins("https://sensational-kringle-1272e1.netlify.app")
            .AllowAnyMethod()
            .AllowAnyHeader();
 });
